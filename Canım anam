@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anam Üçün Sürpriz ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #fff5f7;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Seçdiyim Şeir Hissəsi */
+        .sheir-qutusu {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 1px dashed #ff4d4d;
+            animation: yavascaGorsen 3s ease-in;
+        }
+
+        .misra {
+            font-size: 1.3rem;
+            color: #444;
+            font-style: italic;
+            margin: 8px 0;
+            font-weight: 500;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 2.5rem;
+            margin: 15px 0;
+            animation: boyu 2s infinite alternate;
+        }
+
+        /* Düymənin Stili */
+        #ureyBtn {
+            padding: 18px 40px;
+            font-size: 22px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 8px 15px rgba(255, 77, 77, 0.4);
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        #ureyBtn:hover {
+            transform: scale(1.1);
+            background-color: #ff1a1a;
+        }
+
+        /* Animasiyalar */
+        @keyframes yavascaGorsen {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes boyu {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .flying-heart {
+            position: fixed;
+            top: -10vh;
+            z-index: 999;
+            pointer-events: none;
+            animation: dusme linear forwards;
+        }
+
+        @keyframes dusme {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sheir-qutusu">
+        <p class="misra">Günəş tək nur saçar hər bir sözünlə,</p>
+        <p class="misra">Dünyanı bəzərsən gülər üzünlə.</p>
+        <p class="misra">Sən mənim dünyamsan, əziz canımsan,</p>
+        <p class="misra">Yaxşı ki, varsan, mənim Anamsan!</p>
+    </div>
+
+    <h1>Canım Anam ❤️</h1>
+
+    <button id="ureyBtn" onclick="yagishBaslat()">Qırmızı ürəyə bas</button>
+
+    <script>
+        function yagishBaslat() {
+            // Ekrana tam 400 ürək yağdırırıq
+            for (let i = 0; i < 400; i++) {
+                setTimeout(() => {
+                    const h = document.createElement('div');
+                    h.innerHTML = '❤️';
+                    h.className = 'flying-heart';
+                    
+                    // Ekranın müxtəlif yerlərindən düşməsi üçün
+                    h.style.left = Math.random() * 100 + 'vw';
+                    h.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    h.style.fontSize = (Math.random() * 25 + 15) + 'px';
+                    h.style.opacity = Math.random();
+                    
+                    document.body.appendChild(h);
+                    
+                    // Ekrandan çıxanda təmizləyirik
+                    setTimeout(() => { h.remove(); }, 4000);
+                }, i * 15);
+            }
+        }
+    </script>
+
+</body>
+</html>
