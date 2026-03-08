@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Anam Saytı</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff0f5;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #poem {
+            font-size: 24px;
+            color: #d2691e;
+        }
+    </style>
+</head>
+<body>
+    <div id="poem"></div>
+
+    <script>
+        const poem = `Anam, sən mənim işığımsan,\nSənin sevgin həmişə yanımdasan.\nHər zaman qəlbimdə yerin var,\nSən mənim həyatımın ulduzumsan.`;
+        document.getElementById("poem").innerText = poem;
+    </script>
+</body>
+</html>
