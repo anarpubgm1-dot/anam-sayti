@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anam Üçün Sürpriz</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #fff0f5; /* Yumşaq çəhrayı rəng */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #heartBtn {
+            padding: 20px 40px;
+            font-size: 24px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            outline: none;
+        }
+
+        #heartBtn:hover {
+            transform: scale(1.1) translateY(-5px);
+            background-color: #ff1a1a;
+            box-shadow: 0 12px 25px rgba(255, 77, 77, 0.6);
+        }
+
+        #heartBtn:active {
+            transform: scale(0.9);
+        }
+
+        .falling-heart {
+            position: fixed;
+            top: -5vh;
+            user-select: none;
+            pointer-events: none;
+            z-index: 999;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Anam yaxşı ki varsan ❤️</h1>
+
+    <button id="heartBtn">Qırmızı ürəyə bas</button>
+
+    <script>
+        document.getElementById('heartBtn').addEventListener('click', function() {
+            // Tam 500 ədəd ürək yağdırırıq
+            for (let i = 0; i < 500; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤️';
+                    heart.className = 'falling-heart';
+                    
+                    // Ekranın eni boyunca təsadüfi yerlər
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    
+                    // Müxtəlif sürətlər (3-6 saniyə arası)
+                    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                    
+                    // Müxtəlif ölçülər
+                    heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                    
+                    // Bir az şəffaflıq fərqi
+                    heart.style.opacity = Math.random();
+                    
+                    document.body.appendChild(heart);
+                    
+                    // Ekrandan itəndən sonra yaddaşdan silirik
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 6000);
+                }, i * 15); // Ürəklər çox sürətlə ard-arda gəlsin
+            }
+        });
+    </script>
+
+</body>
+</html>
